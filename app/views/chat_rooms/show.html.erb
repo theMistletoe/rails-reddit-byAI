@@ -1,3 +1,20 @@
 
 <h1><%= @chat_room.title %></h1>
 
+<div id="messages">
+  <% @chat_room.messages.each do |message| %>
+    <p><%= message.body %></p>
+  <% end %>
+</div>
+
+<%= form_with(model: [ @chat_room, Message.new ], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Send" %>
+  </div>
+<% end %>
+
