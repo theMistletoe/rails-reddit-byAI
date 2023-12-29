@@ -1,3 +1,6 @@
+
 Rails.application.routes.draw do
-  root "hello#index"
+  resources :chat_rooms
+  root 'chat_rooms#index'
 end
+
